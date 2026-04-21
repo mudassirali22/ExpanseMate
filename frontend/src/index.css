@@ -4,8 +4,6 @@
 @theme {
     --font-display: "Inter", "sans-serif";
     --breakpoint-3xl: 1920px;
-
-    /* Define functional color mappings to CSS variables */
     --color-background: var(--bg-color);
     --color-surface: var(--surface-color);
     --color-surface-dim: var(--surface-dim);
@@ -51,7 +49,7 @@
 }
 
 :root {
-    /* === Clean Light Theme === */
+    /*Clean Light Theme*/
     --bg-color: #f8fafc;
     --surface-color: #ffffff;
     --surface-dim: #f1f5f9;
@@ -96,7 +94,7 @@
 }
 
 .dark {
-    /* === Clean Dark Theme === */
+    /*Clean Dark Theme*/
     --bg-color: #0f111a;
     --surface-color: #161925;
     --surface-dim: #11131c;
@@ -689,17 +687,13 @@
     animation: slideInRight 0.4s ease forwards;
 }
 
-/* Utility: hide scrollbar */
 .no-scrollbar::-webkit-scrollbar {
     display: none;
 }
-
 .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
-
-/* Utility: mask fade for scroll containers */
 .mask-fade-y {
     mask-image: linear-gradient(to bottom, transparent, black 2%, black 95%, transparent);
 }
