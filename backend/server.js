@@ -33,7 +33,6 @@ const allowedOrigins = [
 
 app.use(cors({
   origin: function (origin, callback) {
-    // allow requests with no origin (like mobile apps or curl requests)
     if (!origin) return callback(null, true);
     if (allowedOrigins.indexOf(origin) !== -1 || allowedOrigins.includes(origin.replace(/\/$/, ""))) {
       callback(null, true);
@@ -49,7 +48,9 @@ app.use(cors({
   optionsSuccessStatus: 200,
 }));
 
+// Modern Security & Policy Headers
 app.use((req, res, next) => {
+  res.setHeader('Cross-Origin-Opener-Policy', 'same-origin-allow-popups');
   console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
   next();
 });
