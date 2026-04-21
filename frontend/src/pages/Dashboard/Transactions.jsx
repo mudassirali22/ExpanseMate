@@ -487,11 +487,10 @@ const Transactions = () => {
           {/* Date range toggle */}
           <button
             onClick={() => setShowMobileDateRange(v => !v)}
-            className={`shrink-0 w-12 h-12 flex items-center justify-center rounded-2xl border transition-all ${
-              showMobileDateRange || dateFrom || dateTo
+            className={`shrink-0 w-12 h-12 flex items-center justify-center rounded-2xl border transition-all ${showMobileDateRange || dateFrom || dateTo
                 ? 'bg-primary/10 border-primary/30 text-primary'
                 : 'bg-surface-container border-glass-border text-on-surface-variant'
-            }`}
+              }`}
           >
             <Calendar size={16} />
           </button>

@@ -241,9 +241,9 @@ const Subscriptions = () => {
 
   // Sort upcoming
   const upcomingRenewals = useMemo(() => {
-     return [...subscriptions]
-       .sort((a, b) => new Date(a.nextBillingDate) - new Date(b.nextBillingDate))
-       .slice(0, 3);
+    return [...subscriptions]
+      .sort((a, b) => new Date(a.nextBillingDate) - new Date(b.nextBillingDate))
+      .slice(0, 3);
   }, [subscriptions]);
 
   const COLORS = ['#6366f1', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899'];
@@ -371,25 +371,25 @@ const Subscriptions = () => {
           </div>
 
           <div className="stat-card bg-primary/5 border-primary/20">
-              <h3 className="text-xs font-black text-primary uppercase tracking-[0.2em] mb-4">Upcoming Renewals</h3>
-              <div className="space-y-3">
-                 {upcomingRenewals.length > 0 ? upcomingRenewals.map((s, i) => (
-                    <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-surface-lowest border border-glass-border">
-                       <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-[10px] font-black text-primary">
-                          {s.name.charAt(0)}
-                       </div>
-                       <div className="flex-1 min-w-0">
-                          <p className="text-[11px] font-bold text-on-surface truncate">{s.name}</p>
-                          <p className="text-[9px] font-bold text-on-surface-variant opacity-60 uppercase tracking-tighter">{new Date(s.nextBillingDate).toLocaleDateString()}</p>
-                       </div>
-                       <div className="text-right">
-                          <p className="text-[10px] font-black text-on-surface">{currencySymbol} {s.amount}</p>
-                       </div>
-                    </div>
-                 )) : (
-                    <p className="text-[10px] text-center font-bold text-on-surface-variant opacity-30 py-4 uppercase italic">No pending renewals</p>
-                 )}
-              </div>
+            <h3 className="text-xs font-black text-primary uppercase tracking-[0.2em] mb-4">Upcoming Renewals</h3>
+            <div className="space-y-3">
+              {upcomingRenewals.length > 0 ? upcomingRenewals.map((s, i) => (
+                <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-surface-lowest border border-glass-border">
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-[10px] font-black text-primary">
+                    {s.name.charAt(0)}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[11px] font-bold text-on-surface truncate">{s.name}</p>
+                    <p className="text-[9px] font-bold text-on-surface-variant opacity-60 uppercase tracking-tighter">{new Date(s.nextBillingDate).toLocaleDateString()}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-[10px] font-black text-on-surface">{currencySymbol} {s.amount}</p>
+                  </div>
+                </div>
+              )) : (
+                <p className="text-[10px] text-center font-bold text-on-surface-variant opacity-30 py-4 uppercase italic">No pending renewals</p>
+              )}
+            </div>
           </div>
         </div>
 
@@ -429,7 +429,7 @@ const Subscriptions = () => {
 
                   <div className="flex gap-4 mb-6 relative z-10">
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary border border-primary/20 shrink-0">
-                       {CATEGORY_ICONS[isEditing ? editFormData.category : sub.category] || <Clock size={20} />}
+                      {CATEGORY_ICONS[isEditing ? editFormData.category : sub.category] || <Clock size={20} />}
                     </div>
                     <div className="min-w-0 flex-1 space-y-1">
                       {isEditing ? (
@@ -454,10 +454,10 @@ const Subscriptions = () => {
                       ) : (
                         <>
                           <div className="flex items-center gap-2 mb-1">
-                             <h3 className="text-base font-black text-on-surface truncate tracking-tight">{sub.name}</h3>
-                             <span className={`text-[8px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider ${isDueSoon ? 'bg-error text-white' : 'bg-success/10 text-success'}`}>
-                                {isDueSoon ? 'Immediate' : 'Scheduled'}
-                             </span>
+                            <h3 className="text-base font-black text-on-surface truncate tracking-tight">{sub.name}</h3>
+                            <span className={`text-[8px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider ${isDueSoon ? 'bg-error text-white' : 'bg-success/10 text-success'}`}>
+                              {isDueSoon ? 'Immediate' : 'Scheduled'}
+                            </span>
                           </div>
                           <p className="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest opacity-60">{sub.category}</p>
                         </>
@@ -469,27 +469,27 @@ const Subscriptions = () => {
                     <div className="p-3 bg-surface-lowest rounded-xl border border-glass-border">
                       <p className="text-[9px] font-bold text-on-surface-variant uppercase tracking-tighter opacity-40 mb-1">Billing Amount</p>
                       {isEditing ? (
-                         <div className="flex items-center gap-1">
-                            <span className="text-xs font-bold">{currencySymbol}</span>
-                            <input
-                               type="number"
-                               value={editFormData.amount}
-                               onChange={(e) => setEditFormData({ ...editFormData, amount: e.target.value })}
-                               className="w-full bg-transparent border-none text-base font-black text-on-surface focus:ring-0 p-0 outline-none"
-                            />
-                         </div>
+                        <div className="flex items-center gap-1">
+                          <span className="text-xs font-bold">{currencySymbol}</span>
+                          <input
+                            type="number"
+                            value={editFormData.amount}
+                            onChange={(e) => setEditFormData({ ...editFormData, amount: e.target.value })}
+                            className="w-full bg-transparent border-none text-base font-black text-on-surface focus:ring-0 p-0 outline-none"
+                          />
+                        </div>
                       ) : (
                         <p className="text-base font-black text-on-surface">{currencySymbol} {sub.amount.toLocaleString()}</p>
                       )}
                       {isEditing ? (
-                         <select
-                            value={editFormData.billingCycle}
-                            onChange={(e) => setEditFormData({ ...editFormData, billingCycle: e.target.value })}
-                            className="bg-transparent text-[8px] font-bold text-primary uppercase mt-0.5 border-none p-0 focus:ring-0 outline-none"
-                         >
-                            <option value="Monthly">Monthly</option>
-                            <option value="Yearly">Yearly</option>
-                         </select>
+                        <select
+                          value={editFormData.billingCycle}
+                          onChange={(e) => setEditFormData({ ...editFormData, billingCycle: e.target.value })}
+                          className="bg-transparent text-[8px] font-bold text-primary uppercase mt-0.5 border-none p-0 focus:ring-0 outline-none"
+                        >
+                          <option value="Monthly">Monthly</option>
+                          <option value="Yearly">Yearly</option>
+                        </select>
                       ) : (
                         <p className="text-[8px] font-bold text-primary uppercase mt-0.5">{sub.billingCycle}</p>
                       )}
@@ -503,30 +503,30 @@ const Subscriptions = () => {
 
                   {isEditing ? (
                     <div className="space-y-4 relative z-10">
-                       <div>
-                          <label className="text-[9px] font-bold text-on-surface-variant uppercase tracking-widest ml-1">Next Billing</label>
-                          <input
-                             type="date"
-                             value={editFormData.nextBillingDate}
-                             onChange={(e) => setEditFormData({ ...editFormData, nextBillingDate: e.target.value })}
-                             className="w-full bg-surface-container border border-glass-border rounded-lg px-2 py-1.5 text-[11px] font-bold text-on-surface focus:border-primary outline-none mt-1"
-                          />
-                       </div>
-                       <div className="flex gap-2">
-                          <button
-                             onClick={() => handleInlineSave(sub._id)}
-                             disabled={isSavingInline}
-                             className="flex-1 py-1.5 bg-primary text-white text-[10px] font-bold rounded-lg hover:bg-primary/90 transition-all flex items-center justify-center gap-2"
-                          >
-                             {isSavingInline ? '...' : 'SAVE'}
-                          </button>
-                          <button
-                             onClick={cancelInlineEdit}
-                             className="flex-1 py-1.5 bg-surface-container text-on-surface-variant text-[10px] font-bold rounded-lg hover:bg-surface-container-high transition-all"
-                          >
-                             CANCEL
-                          </button>
-                       </div>
+                      <div>
+                        <label className="text-[9px] font-bold text-on-surface-variant uppercase tracking-widest ml-1">Next Billing</label>
+                        <input
+                          type="date"
+                          value={editFormData.nextBillingDate}
+                          onChange={(e) => setEditFormData({ ...editFormData, nextBillingDate: e.target.value })}
+                          className="w-full bg-surface-container border border-glass-border rounded-lg px-2 py-1.5 text-[11px] font-bold text-on-surface focus:border-primary outline-none mt-1"
+                        />
+                      </div>
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => handleInlineSave(sub._id)}
+                          disabled={isSavingInline}
+                          className="flex-1 py-1.5 bg-primary text-white text-[10px] font-bold rounded-lg hover:bg-primary/90 transition-all flex items-center justify-center gap-2"
+                        >
+                          {isSavingInline ? '...' : 'SAVE'}
+                        </button>
+                        <button
+                          onClick={cancelInlineEdit}
+                          className="flex-1 py-1.5 bg-surface-container text-on-surface-variant text-[10px] font-bold rounded-lg hover:bg-surface-container-high transition-all"
+                        >
+                          CANCEL
+                        </button>
+                      </div>
                     </div>
                   ) : (
                     <div className="mt-auto flex justify-between items-center text-[10px] font-bold border-t border-glass-border pt-4 relative z-10">

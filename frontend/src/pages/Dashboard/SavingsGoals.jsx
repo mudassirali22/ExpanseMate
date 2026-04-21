@@ -288,9 +288,9 @@ const SavingsGoals = () => {
       {/* Summary Row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-10">
         {[
-          { label: 'Total Target',value: ` ${totalTarget.toLocaleString()}`, icon: Target, color: 'primary' },
+          { label: 'Total Target', value: ` ${totalTarget.toLocaleString()}`, icon: Target, color: 'primary' },
           { label: 'Total Saved', value: `${totalSaved.toLocaleString()}`, icon: TrendingUp, color: 'secondary' },
-          { label: 'Active Goals',value: goals.length, icon: Rocket, color: 'tertiary' },
+          { label: 'Active Goals', value: goals.length, icon: Rocket, color: 'tertiary' },
           { label: 'Overall Progress', value: `${aggregateProgress}%`, icon: CheckCircle, color: 'success' }
         ].map((stat, i) => (
           <div key={i} className="stat-card">

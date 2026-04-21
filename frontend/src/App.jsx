@@ -135,8 +135,11 @@ const App = () => {
                 borderRadius: '16px',
                 backdropFilter: 'blur(12px)',
                 fontSize: '14px',
-                pointerEvents: 'none',
               },
+              success: { style: { pointerEvents: 'none' } },
+              error: { style: { pointerEvents: 'none' } },
+              blank: { style: { pointerEvents: 'auto' } },
+              custom: { style: { pointerEvents: 'auto' } }
             }}
           />
         </AuthProvider>

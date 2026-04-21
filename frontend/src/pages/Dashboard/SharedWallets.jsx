@@ -1048,43 +1048,43 @@ const SharedWallets = () => {
 
           {/* Pending Requests Section — Owner Only */}
           {(selectedWallet?.createdBy?._id === user?._id || selectedWallet?.createdBy === user?._id) &&
-           selectedWallet?.requests?.filter(r => r.status === 'Pending').length > 0 && (
-            <div className="space-y-3">
-              <h4 className="text-[9px] font-black text-secondary uppercase tracking-[0.3em] flex items-center gap-2">
-                Pending Actions
-              </h4>
-              <div className="space-y-2">
-                {selectedWallet.requests.filter(r => r.status === 'Pending').map((req, i) => (
-                  <div key={i} className="p-4 rounded-2xl bg-secondary/[0.02] border border-secondary/10 flex flex-col gap-3">
-                    <div className="flex justify-between items-center">
-                      <div className="min-w-0">
-                        <p className="text-[10px] font-black text-on-surface">
-                          {req.requestedByEmail.split('@')[0]} Extra Contribution
-                        </p>
-                        <p className="text-[9px] text-on-surface-variant opacity-60 font-medium truncate italic">"{req.description}"</p>
+            selectedWallet?.requests?.filter(r => r.status === 'Pending').length > 0 && (
+              <div className="space-y-3">
+                <h4 className="text-[9px] font-black text-secondary uppercase tracking-[0.3em] flex items-center gap-2">
+                  Pending Actions
+                </h4>
+                <div className="space-y-2">
+                  {selectedWallet.requests.filter(r => r.status === 'Pending').map((req, i) => (
+                    <div key={i} className="p-4 rounded-2xl bg-secondary/[0.02] border border-secondary/10 flex flex-col gap-3">
+                      <div className="flex justify-between items-center">
+                        <div className="min-w-0">
+                          <p className="text-[10px] font-black text-on-surface">
+                            {req.requestedByEmail.split('@')[0]} Extra Contribution
+                          </p>
+                          <p className="text-[9px] text-on-surface-variant opacity-60 font-medium truncate italic">"{req.description}"</p>
+                        </div>
+                        <p className="text-sm font-black text-secondary shrink-0">{currencySymbol} {req.amount.toLocaleString()}</p>
                       </div>
-                      <p className="text-sm font-black text-secondary shrink-0">{currencySymbol} {req.amount.toLocaleString()}</p>
-                    </div>
 
-                    <div className="flex gap-2">
-                      <button
-                        onClick={() => handleRequestAction(req._id, 'Accepted')}
-                        className="flex-1 py-1.5 bg-secondary text-white text-[9px] font-black rounded-lg hover:bg-secondary-dark transition-all uppercase tracking-widest"
-                      >
-                        Accept
-                      </button>
-                      <button
-                        onClick={() => handleRequestAction(req._id, 'Rejected')}
-                        className="flex-1 py-1.5 bg-surface-container text-on-surface-variant text-[9px] font-black rounded-lg hover:bg-surface-container-high transition-all uppercase tracking-[0.15em] border border-glass-border"
-                      >
-                        Reject
-                      </button>
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => handleRequestAction(req._id, 'Accepted')}
+                          className="flex-1 py-1.5 bg-secondary text-white text-[9px] font-black rounded-lg hover:bg-secondary-dark transition-all uppercase tracking-widest"
+                        >
+                          Accept
+                        </button>
+                        <button
+                          onClick={() => handleRequestAction(req._id, 'Rejected')}
+                          className="flex-1 py-1.5 bg-surface-container text-on-surface-variant text-[9px] font-black rounded-lg hover:bg-surface-container-high transition-all uppercase tracking-[0.15em] border border-glass-border"
+                        >
+                          Reject
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
           <div className="space-y-3">
             <h4 className="text-[9px] font-black text-primary uppercase tracking-[0.3em]">

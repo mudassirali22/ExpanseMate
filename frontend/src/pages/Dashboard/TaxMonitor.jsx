@@ -8,7 +8,7 @@ import {
    Heart, GraduationCap, Stethoscope, Plus, Trash2, Bot, AlertTriangle,
    ChevronRight, ArrowRight, Download, CheckCircle2, ShieldCheck, Info,
    Eye, Wallet, Banknote, Clock,
-   Pencil,X
+   Pencil, X
 } from 'lucide-react';
 
 const TaxMonitor = () => {
@@ -33,33 +33,33 @@ const TaxMonitor = () => {
    const [isAuditing, setIsAuditing] = useState(false);
    const [auditResult, setAuditResult] = useState(null);
 
-    const handleAiAudit = () => {
-       setIsAuditing(true);
-       setAuditResult(null);
-       setTimeout(() => {
-          setIsAuditing(false);
-          const totalCharity = categoryTotals.Charity || 0;
-          const totalMedical = categoryTotals.Medical || 0;
-          const totalInvest = categoryTotals.Investment || 0;
-          
-          let tip = "Your tax health looks good. Keep tracking all your spending to find more savings.";
-          
-          if (remainingTax > 100000) {
-             tip = `You have a high tax bill of ${currencySymbol} ${remainingTax.toLocaleString()}. Try making a donation or investing in mutual funds to lower this.`;
-          } else if (totalCharity < 5000 && totalIncome > 1000000) {
-             tip = "You can save more tax by donating to registered charities or Zakat funds.";
-          } else if (totalInvest < 50000) {
-             tip = "Consider investing in National Savings or mutual funds. These can help reduce your taxable income.";
-          }
-          
-          setAuditResult({
-             status: 'OPTIMIZED',
-             tip: tip,
-             efficiency: Math.min(Math.floor((totalDeductions / (totalIncome * 0.1 || 1)) * 100) + 40, 98)
-          });
-          toast.success("AI Audit Complete");
-       }, 2000);
-    };
+   const handleAiAudit = () => {
+      setIsAuditing(true);
+      setAuditResult(null);
+      setTimeout(() => {
+         setIsAuditing(false);
+         const totalCharity = categoryTotals.Charity || 0;
+         const totalMedical = categoryTotals.Medical || 0;
+         const totalInvest = categoryTotals.Investment || 0;
+
+         let tip = "Your tax health looks good. Keep tracking all your spending to find more savings.";
+
+         if (remainingTax > 100000) {
+            tip = `You have a high tax bill of ${currencySymbol} ${remainingTax.toLocaleString()}. Try making a donation or investing in mutual funds to lower this.`;
+         } else if (totalCharity < 5000 && totalIncome > 1000000) {
+            tip = "You can save more tax by donating to registered charities or Zakat funds.";
+         } else if (totalInvest < 50000) {
+            tip = "Consider investing in National Savings or mutual funds. These can help reduce your taxable income.";
+         }
+
+         setAuditResult({
+            status: 'OPTIMIZED',
+            tip: tip,
+            efficiency: Math.min(Math.floor((totalDeductions / (totalIncome * 0.1 || 1)) * 100) + 40, 98)
+         });
+         toast.success("AI Audit Complete");
+      }, 2000);
+   };
 
    const fetchAll = async () => {
       setLoading(true);
@@ -174,19 +174,19 @@ const TaxMonitor = () => {
    const totalIncome = stats.totalIncome || 0;
    const incomeExemption = 600000;
 
-    const categoryTotals = useMemo(() => {
-       const totals = { Business: 0, Charity: 0, Education: 0, Medical: 0, Investment: 0 };
-       expenses.forEach(e => {
-          const cat = (e.category || '').toLowerCase();
-          const title = (e.title || '').toLowerCase();
-          if (cat === 'business' || cat.includes('office') || title.includes('business') || title.includes('office')) totals.Business += e.amount;
-          if (cat === 'charity' || cat === 'zakat' || title.includes('donation') || title.includes('zakat')) totals.Charity += e.amount;
-          if (cat === 'education' || cat.includes('school') || cat.includes('university') || cat.includes('fee') || title.includes('fee')) totals.Education += e.amount;
-          if (cat === 'medical' || cat === 'health' || cat.includes('hospital') || title.includes('medical') || title.includes('doctor')) totals.Medical += e.amount;
-          if (cat.includes('invest') || title.includes('stock') || title.includes('mutual fund') || title.includes('gold') || title.includes('crypto')) totals.Investment += e.amount;
-       });
-       return totals;
-    }, [expenses]);
+   const categoryTotals = useMemo(() => {
+      const totals = { Business: 0, Charity: 0, Education: 0, Medical: 0, Investment: 0 };
+      expenses.forEach(e => {
+         const cat = (e.category || '').toLowerCase();
+         const title = (e.title || '').toLowerCase();
+         if (cat === 'business' || cat.includes('office') || title.includes('business') || title.includes('office')) totals.Business += e.amount;
+         if (cat === 'charity' || cat === 'zakat' || title.includes('donation') || title.includes('zakat')) totals.Charity += e.amount;
+         if (cat === 'education' || cat.includes('school') || cat.includes('university') || cat.includes('fee') || title.includes('fee')) totals.Education += e.amount;
+         if (cat === 'medical' || cat === 'health' || cat.includes('hospital') || title.includes('medical') || title.includes('doctor')) totals.Medical += e.amount;
+         if (cat.includes('invest') || title.includes('stock') || title.includes('mutual fund') || title.includes('gold') || title.includes('crypto')) totals.Investment += e.amount;
+      });
+      return totals;
+   }, [expenses]);
 
    const totalDeductions = Object.values(categoryTotals).reduce((a, b) => a + b, 0);
    const taxableIncome = Math.max(totalIncome - incomeExemption - totalDeductions, 0);
@@ -257,27 +257,27 @@ const TaxMonitor = () => {
                </div>
             </div>
 
-             <div className="stat-card">
-                <div className="flex justify-between items-start mb-4">
-                   <p className="stat-label mb-0">Money Saved</p>
-                   <div className="w-8 h-8 rounded-lg bg-success/10 flex items-center justify-center text-success"><ShieldCheck size={16} /></div>
-                </div>
-                <h4 className="text-2xl font-bold text-on-surface mt-1">{currencySymbol} {totalDeductions.toLocaleString()}</h4>
-                <p className="text-[9px] font-bold text-on-surface-variant mt-2 uppercase tracking-widest opacity-60">Total Tax Relief</p>
-             </div>
+            <div className="stat-card">
+               <div className="flex justify-between items-start mb-4">
+                  <p className="stat-label mb-0">Money Saved</p>
+                  <div className="w-8 h-8 rounded-lg bg-success/10 flex items-center justify-center text-success"><ShieldCheck size={16} /></div>
+               </div>
+               <h4 className="text-2xl font-bold text-on-surface mt-1">{currencySymbol} {totalDeductions.toLocaleString()}</h4>
+               <p className="text-[9px] font-bold text-on-surface-variant mt-2 uppercase tracking-widest opacity-60">Total Tax Relief</p>
+            </div>
 
-             <div className="stat-card">
-                <div className="flex justify-between items-start mb-4">
-                   <p className="stat-label mb-0">Balance to Pay</p>
-                   <div className="w-8 h-8 rounded-lg bg-error/10 flex items-center justify-center text-error"><Clock size={16} /></div>
-                </div>
-                <h4 className={`text-2xl font-bold mt-1 ${remainingTax > 0 ? 'text-error' : 'text-success'}`}>
-                   {currencySymbol} {remainingTax.toLocaleString(undefined, { maximumFractionDigits: 0 })}
-                </h4>
-                <p className="text-[9px] font-bold text-on-surface-variant mt-2 uppercase tracking-widest opacity-60">
-                   {remainingTax > 0 ? 'To be paid' : 'All clear'}
-                </p>
-             </div>
+            <div className="stat-card">
+               <div className="flex justify-between items-start mb-4">
+                  <p className="stat-label mb-0">Balance to Pay</p>
+                  <div className="w-8 h-8 rounded-lg bg-error/10 flex items-center justify-center text-error"><Clock size={16} /></div>
+               </div>
+               <h4 className={`text-2xl font-bold mt-1 ${remainingTax > 0 ? 'text-error' : 'text-success'}`}>
+                  {currencySymbol} {remainingTax.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+               </h4>
+               <p className="text-[9px] font-bold text-on-surface-variant mt-2 uppercase tracking-widest opacity-60">
+                  {remainingTax > 0 ? 'To be paid' : 'All clear'}
+               </p>
+            </div>
          </div>
 
          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
@@ -286,13 +286,13 @@ const TaxMonitor = () => {
                <div className="stat-card">
                   <h3 className="section-title text-sm mb-6">Tax Savings Details</h3>
                   <div className="space-y-4">
-                      {[
-                         { label: 'Business Expenses', icon: Briefcase, color: 'primary', val: categoryTotals.Business },
-                         { label: 'Donations ', icon: Heart, color: 'secondary', val: categoryTotals.Charity },
-                         { label: 'Medical Bills', icon: Stethoscope, color: 'error', val: categoryTotals.Medical },
-                         { label: 'Education Fees', icon: GraduationCap, color: 'tertiary', val: categoryTotals.Education },
-                         { label: 'Total Investments', icon: TrendingUp, color: 'success', val: categoryTotals.Investment }
-                      ].filter(item => item.val > 0 || ['Business Expenses', 'Donations '].includes(item.label)).map((item, idx) => (
+                     {[
+                        { label: 'Business Expenses', icon: Briefcase, color: 'primary', val: categoryTotals.Business },
+                        { label: 'Donations ', icon: Heart, color: 'secondary', val: categoryTotals.Charity },
+                        { label: 'Medical Bills', icon: Stethoscope, color: 'error', val: categoryTotals.Medical },
+                        { label: 'Education Fees', icon: GraduationCap, color: 'tertiary', val: categoryTotals.Education },
+                        { label: 'Total Investments', icon: TrendingUp, color: 'success', val: categoryTotals.Investment }
+                     ].filter(item => item.val > 0 || ['Business Expenses', 'Donations '].includes(item.label)).map((item, idx) => (
                         <div key={idx} className="flex flex-col gap-2 p-3 rounded-xl bg-surface-lowest border border-glass-border">
                            <div className="flex justify-between items-center">
                               <item.icon size={14} className={`text-${item.color}`} />
@@ -304,7 +304,7 @@ const TaxMonitor = () => {
                   </div>
                </div>
 
-               <div 
+               <div
                   onClick={!isAuditing ? handleAiAudit : undefined}
                   className={`stat-card border-primary/20 py-8 text-center cursor-pointer group transition-all relative overflow-hidden ${isAuditing ? 'animate-pulse' : ''}`}>
                   {isAuditing && <div className="absolute inset-0 bg-primary/5 animate-shimmer" />}
@@ -315,7 +315,7 @@ const TaxMonitor = () => {
                   <p className="text-[9px] font-bold text-on-surface-variant uppercase mt-1 opacity-60 relative z-10">
                      {isAuditing ? 'Analyzing records' : (auditResult ? `${auditResult.efficiency}% Efficient` : 'Check Now')}
                   </p>
-                  
+
                   {auditResult && (
                      <div className="mt-4 p-3 bg-surface-lowest border border-glass-border rounded-xl text-left animate-fade-in">
                         <div className="flex items-center gap-1.5 mb-1.5">
