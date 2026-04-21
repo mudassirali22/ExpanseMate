@@ -57,7 +57,7 @@ export const useBudgets = () => {
   const updateBudget = async (id, payload) => {
     try {
       await apiClient.put(`/api/v1/budgets/update/${id}`, payload);
-      toast.success('Budget Updated');
+      toast.success('Budget Updated', { id: 'budget-updated', duration: 3000 });
       refreshAll();
       return true;
     } catch (err) {
@@ -69,7 +69,7 @@ export const useBudgets = () => {
   const addBudget = async (payload) => {
     try {
       await apiClient.post('/api/v1/budgets/add', payload);
-      toast.success('Budget created!');
+      toast.success('Budget created!', { id: 'budget-created', duration: 3000 });
       refreshAll();
       return true;
     } catch (err) {

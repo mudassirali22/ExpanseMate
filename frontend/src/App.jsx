@@ -135,6 +135,7 @@ const App = () => {
                 borderRadius: '16px',
                 backdropFilter: 'blur(12px)',
                 fontSize: '14px',
+                pointerEvents: 'none',
               },
             }}
           />
