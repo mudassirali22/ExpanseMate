@@ -67,26 +67,26 @@ ExpenseMate isn't just an expense tracker—it's an entire ecosystem for your mo
 ### Frontend Architecture
 | Category | Technologies Used |
 | :--- | :--- |
-| **Core Framework** | React 19.2 + Vite 7.3 |
-| **Routing** | React Router DOM 7.13 |
-| **Styling & Theming** | Tailwind CSS 4.2 |
-| **Animations** | Framer Motion 12.38 |
-| **Data Visualization** | Recharts 3.7 |
+| **Core Framework** | React + Vite |
+| **Routing** | React Router DOM |
+| **Styling & Theming** | Tailwind CSS |
+| **Animations** | Framer Motion |
+| **Data Visualization** | Recharts |
 | **Icons & UI Ext.** | Lucide React, React Icons, Emoji Picker React |
-| **Data Export** | jsPDF 4.2, jsPDF-AutoTable 5.0 |
-| **State & Networking** | Axios 1.13, Custom Native React Hooks |
-| **Feedback System** | React Hot Toast 2.6 |
+| **Data Export** | jsPDF , jsPDF-AutoTable |
+| **State & Networking** | Axios , Custom Native React Hooks |
+| **Feedback System** | React Hot Toast |
 
 ### Backend & Infrastructure
 | Category | Technologies Used |
 | :--- | :--- |
-| **Core Runtime** | Node.js + Express 5.2 |
-| **Database & ORM** | MongoDB + Mongoose 9.2 |
+| **Core Runtime** | Node.js + Express |
+| **Database & ORM** | MongoDB + Mongoose |
 | **Security & Auth** | JSON Web Tokens (JWT), BcryptJS, Cookie-Parser, Google OAuth Library |
-| **AI Integration** | Google Generative AI (Gemini SDK) 0.24 |
-| **Media Cloud Storage** | Cloudinary 2.9, Multer 2.0, Streamifier |
-| **Data Import/Export** | ExcelJS 4.4 |
-| **Email Services** | Nodemailer 8.0 |
+| **AI Integration** | Google Generative AI (Gemini SDK)|
+| **Media Cloud Storage** | Cloudinary , Multer 2.0, Streamifier |
+| **Data Import/Export** | ExcelJS |
+| **Email Services** | Nodemailer |
 
 ---
 
