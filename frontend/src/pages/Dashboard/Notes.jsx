@@ -169,7 +169,7 @@ const Notes = () => {
                 const endpoint = type === 'note' ? `/api/v1/notes/delete/${id}` : `/api/v1/reminders/delete/${id}`;
                 const res = await fetch(`${API}${endpoint}`, { method: 'DELETE', credentials: 'include' });
                 if (res.ok) {
-                  toast.success('Deleted', { id: 'del-succ-note', duration: 3000 });
+                  toast.success('Deleted', { id: 'del-succ-note', duration: 3000 }); setTimeout(() => toast.dismiss('del-succ-note'), 3000);
                   if (type === 'note') fetchNotes();
                   else fetchReminders();
                 }

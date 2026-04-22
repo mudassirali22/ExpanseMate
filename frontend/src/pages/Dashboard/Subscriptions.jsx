@@ -186,7 +186,7 @@ const Subscriptions = () => {
                 });
                 const data = await res.json();
                 if (data.success) {
-                  toast.success("Service removed", { id: 'del-succ-sub', duration: 3000 });
+                  toast.success("Service removed", { id: 'del-succ-sub', duration: 3000 }); setTimeout(() => toast.dismiss('del-succ-sub'), 3000);
                   fetchSubscriptions();
                 } else {
                   toast.error(data.message || "Delete failed");

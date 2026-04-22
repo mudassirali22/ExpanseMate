@@ -331,7 +331,7 @@ const Transactions = () => {
 
                 const res = await fetch(endpoint, { method: 'DELETE', credentials: 'include' });
                 if (res.ok) {
-                  toast.success('Transaction removed', { id: 'del-succ-trans', duration: 3000 });
+                  toast.success('Transaction removed', { id: 'del-succ-trans', duration: 3000 }); setTimeout(() => toast.dismiss('del-succ-trans'), 3000);
                   fetchAll();
                 } else {
                   toast.error('Deletion failed');
